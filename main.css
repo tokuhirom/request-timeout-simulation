@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+    color: green;
+}
+
+#container {
+    margin: 40px;
+}
+
+#current {
+    margin: 80px;
+    word-break: break-all;
+    max-width: 80%;
+}
+

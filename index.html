@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Request Timeout Demo</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+
+    <form id="form">
+        <div><input type="text" required value="100" id="req_per_sec"> req/sec</div>
+        <div><input type="text" required value="3000" id="threads"> threads</div>
+        <div>timeout: <input type="text" required value="30" id="timeout"> msecs</div>
+        <div>simulator interval: <input type="text" required value="30" id="interval"> msecs</div>
+        <div><input type="submit" value="Run"></div>
+    </form>
+    <div id="current"></div>
+    <div>Tick: <span id="tickCount">0</span> msec</div>
+    <div>Fails: <span id="failCount">0</span></div>
+
+    <footer>
+        <div>_: available thread. *: busy thread</div>
+    </footer>
+    <script src="main.js"></script>
+
+    <script>
+        setTimeout(() => {
+            submitForm()
+        }, 100)
+    </script>
+</div>
+</body>
+</html>
