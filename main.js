@@ -66,7 +66,7 @@ class Simulator {
             } else {
                 this.failCounter++
             }
-            this.counter -= 0
+            this.counter -= 1.0
         }
 
         // 現状走っているリクエストを処理させる。
