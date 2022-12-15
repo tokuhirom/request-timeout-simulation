@@ -86,21 +86,23 @@ class Simulator {
 }
 
 document.addEventListener("readystatechange", ()=> {
-    const interval = parseInt(document.getElementById("interval").value, 10)
-
-    let currentSimulator = null
-    setInterval(() => {
-        if (currentSimulator != null) {
-            currentSimulator.tick()
-        }
-    }, interval)
+    let intervalId = null
 
     function submitForm() {
         const req_per_sec = parseInt(document.getElementById("req_per_sec").value, 10)
         const threads = parseInt(document.getElementById("threads").value, 10)
         const timeout = parseInt(document.getElementById("timeout").value, 10)
+        const interval = parseInt(document.getElementById("interval").value, 10)
 
-        currentSimulator = new Simulator(req_per_sec, threads, timeout)
+        const simulator = new Simulator(req_per_sec, threads, timeout)
+        if (intervalId) {
+            clearInterval(intervalId)
+        }
+        intervalId = setInterval(() => {
+            if (simulator != null) {
+                simulator.tick()
+            }
+        }, interval)
     }
 
     const form = document.getElementById("form")
