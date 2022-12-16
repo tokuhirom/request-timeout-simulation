@@ -56,7 +56,7 @@ class Simulator {
         // 1 tick は 1msec とする。
         // 100 req/sec の場合 100/1000 req/msec なので、10msec=10tick に一回 request が発生する。
         this.counter += this.req_per_sec / 1000
-        if (this.counter > 1.0) {
+        while (this.counter > 1.0) {
             // request 発生。割当先の thread を見つけて割り当てる。
             const availableThreads = this.threads.filter(it => {
                 return it.state === STATE.AVAILABLE
